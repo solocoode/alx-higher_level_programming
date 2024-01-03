@@ -1,3 +1,2 @@
 #!/usr/bin/python3
-print('"The Zen of Python", by Tim Peters, beatiful is better than ugly. \n')
-
+print('“The Zen of Python”, by TimPeters,\n')
