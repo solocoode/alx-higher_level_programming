@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+
+import unittest
+from 0-add_integer import add_integer  # Import the function to test
+
+class TestAddInteger(unittest.TestCase):
+    def test_valid_addition(self):
+        self.assertEqual(add_integer(1, 2), 3)
+        self.assertEqual(add_integer(-5, 10), 5)
+        self.assertEqual(add_integer(3.5, 2.7), 6)
+
+    def test_default_value(self):
+        self.assertEqual(add_integer(4), 102)
+        self.assertEqual(add_integer(-8), 90)
+
+    def test_invalid_types(self):
+        with self.assertRaises(TypeError) as context:
+            add_integer(4, "hello")
+        self.assertTrue("b must be an integer" in str(context.exception))
+
+        with self.assertRaises(TypeError) as context:
+            add_integer("world", 5)
+        self.assertTrue("a must be an integer" in str(context.exception))
+
+    def test_none_input(self):
+        with self.assertRaises(TypeError) as context:
+            add_integer(None, 10)
+        self.assertTrue("a must be an integer" in str(context.exception))
+
+    def test_edge_cases(self):
+        self.assertEqual(add_integer(sys.maxsize - 1, 1), -sys.maxsize)  # Assuming 32-bit integers
+        self.assertEqual(add_integer(0, 0), 0)
+        self.assertEqual(add_integer(-0.0, 0), 0)
+
+if __name__ == '__main__':
+    unittest.main()
