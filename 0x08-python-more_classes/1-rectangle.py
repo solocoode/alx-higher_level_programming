@@ -1,21 +1,25 @@
 #!/usr/bin/python3
-"""Class defining a rectangle"""
+"""
+Defines a class Rectangle
+"""
 
 
 class Rectangle:
+    """Representation of a rectangle"""
     def __init__(self, width=0, height=0):
-        """Initialize the rectangle with optional width and height."""
-        self.width = width
+        """Initializes the rectangle"""
         self.height = height
+        self.width = width
 
     @property
     def width(self):
+        """getter for the private instance attribute width"""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Set the width of the rectangle."""
-        if not isinstance(value, int):
+        """setter for the private instance attribute width"""
+        if type(value) is not int:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
@@ -23,51 +27,14 @@ class Rectangle:
 
     @property
     def height(self):
-        """Retrieve the height of the rectangle."""
+        """getter for the private instance attribute height"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Set the height of the rectangle."""
-        if not isinstance(value, int):
+        """setter for the private instance attribute height"""
+        if type(value) is not int:
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
-
-# Additional test cases
-try:
-    myrectangle = Rectangle(2, -3)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
-
-try:
-    myrectangle = Rectangle(-2, 3)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
-
-myrectangle = Rectangle(2, 4)
-print(sorted(myrectangle.__dict__))
-print(myrectangle.width)
-print(myrectangle.height)
-
-myrectangle = Rectangle(2, 4)
-print("{} - {}".format(myrectangle.width, myrectangle.height))
-myrectangle.width = 10
-print("{} - {}".format(myrectangle.width, myrectangle.height))
-
-myrectangle = Rectangle(2, 4)
-print("{} - {}".format(myrectangle.width, myrectangle.height))
-myrectangle.height = 10
-print("{} - {}".format(myrectangle.width, myrectangle.height))
-
-try:
-    myrectangle = Rectangle(2, "3")
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
-
-try:
-    myrectangle = Rectangle("2", 3)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
