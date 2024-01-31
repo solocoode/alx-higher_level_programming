@@ -1,6 +1,10 @@
 #!/usr/bin/python3
-class LockedClass():
-    __slots__ = ['first name']
+"""This defines a locked class"""
 
-    def __init__(self):
-        pass
+
+class LockedClass:
+    """
+    Only allows instatiation of an attribute called first_name
+    """
+
+    __slots__ = ["first_name"]
