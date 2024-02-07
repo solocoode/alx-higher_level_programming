@@ -1,24 +1,15 @@
 #!/usr/bin/python3
-
-"""Reads standard input and computes metrics.
-
-After every ten lines or the input of a keyboard interruption (CTRL + C),
-prints the following statistics:
-    - Total file size.
-    - Number of lines by status codes.
+"""Reads from standard input and computes metrics
 """
 
 
 def print_stats(size, status_codes):
-    """Prints accumulated metrics.
-
-    Args:
-        size (int): Accumulated read file size.
-        status_codes (dict): Accumulated count of status codes.
+    """Print accumulated metrics
     """
     print("File size: {}".format(size))
     for key in sorted(status_codes):
         print("{}: {}".format(key, status_codes[key]))
+
 
 if __name__ == "__main__":
     import sys
